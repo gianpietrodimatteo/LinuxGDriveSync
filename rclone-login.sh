@@ -15,23 +15,11 @@ else
 fi
 
 # Perform the initial sync from Google Drive to local machine
-rclone sync -v GoogleDrive: "$DRIVEPATH" > "$FLAGPATH"/login-log.log 2>&1
-
-# Check if rclone encountered any errors during the sync
-if [ $? -ne 0 ]; then
-  echo "Error during initial sync from Google Drive. Please check and resolve the issue."
-  touch $FLAGPATH/no_sync_flag  # Create a flag file to signal cron job not to run
-else
-  echo "Initial sync successful."
-  rm -f $FLAGPATH/no_sync_flag  # Remove the flag file if sync is successful
-fi
-
-
 if ! rclone sync -v GoogleDrive: "$DRIVEPATH" > "$FLAGPATH"/login-log.log 2>&1;
 then
   echo "Error during initial sync from Google Drive. Please check and resolve the issue."
-  touch $FLAGPATH/no_sync_flag  # Create a flag file to signal cron job not to run
+  touch "$FLAGPATH"/no_sync_flag  # Create a flag file to signal cron job not to run
 else
   echo "Initial sync successful."
-  rm -f $FLAGPATH/no_sync_flag  # Remove the flag file if sync is successful
+  rm -f "$FLAGPATH"/no_sync_flag  # Remove the flag file if sync is successful
 fi

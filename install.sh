@@ -15,6 +15,10 @@ rclone config
 # Make initial sync
 rclone sync -v GoogleDrive: ~/GoogleDrive
 
+# Make sure scripts are executable
+chmod +x "$(pwd)/rclone-login.sh"
+chmod +x "$(pwd)/rclone-sync.sh"
+
 # Install scripts
 ln -sv "$(pwd)/rclone-login.sh" ~/bin/
 ln -sv "$(pwd)/rclone-sync.sh" ~/bin/
