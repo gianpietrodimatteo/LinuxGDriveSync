@@ -1,0 +1,7 @@
+[Unit]
+Description=Run rclone-sync.sh every 5 minutes
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/rclone-sync.sh
+

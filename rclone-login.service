@@ -1,0 +1,11 @@
+[Unit]
+Description=Sync rclone (remote to local) at login
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=%h/bin/rclone-login.sh
+
+[Install]
+WantedBy=default.target
+
