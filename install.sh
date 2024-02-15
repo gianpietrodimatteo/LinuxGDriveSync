@@ -2,7 +2,7 @@
 
 # LinuxGDriveSync installer
 # A Google Drive syncing tool for Linux based systems using Rclone
-# Requires rclone and systemd
+# Requires rclone, systemd and libnotify
 
 rmCp() {
     rm -f "$2"
