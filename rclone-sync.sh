@@ -6,7 +6,7 @@ DRIVEPATH=$HOME/GoogleDrive
 
 # Check if the startup sync failure flag file exists; if it does, don't proceed with sync
 if [ -e "$FLAGPATH"/no_sync_flag ]; then
-  echo "Startup sync skipped due to a previous failure. Skipping the cron job."
+  echo "Periodical sync skipped due to a previous failure."
   exit 0
 fi
 
